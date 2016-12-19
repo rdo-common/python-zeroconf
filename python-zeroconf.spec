@@ -16,6 +16,9 @@ BuildRequires:  python3-pytest
 BuildRequires:  python3-netifaces
 BuildRequires:  python3-six
 
+# Integration tests work in mock but fail in Koji with PermissionError
+%bcond_with integration
+
 %description
 A pure Python implementation of multicast DNS service discovery
 supporting Bonjour/Avahi.
@@ -46,7 +49,12 @@ rm -rf %{pypi_name}.egg-info
 
 
 %check
-%{__python3} -m pytest
+%{__python3} -m pytest \
+%if %{with integartion}
+
+%else
+  -k "not integration"
+%endif
 
 
 %files -n python3-%{pypi_name}
