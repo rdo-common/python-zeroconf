@@ -2,7 +2,7 @@
 
 Name:           python-%{pypi_name}
 Version:        0.17.6
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Pure Python Multicast DNS Service Discovery Library
 
 License:        LGPLv2
@@ -101,6 +101,9 @@ rm -rf %{pypi_name}.egg-info
 
 
 %changelog
+* Wed Dec 21 2016 Miro Hrončok <mhroncok@redhat.com> - 0.17.6-3
+- Rebuild for Python 3.6
+
 * Wed Dec 21 2016 Miro Hrončok <mhroncok@redhat.com> - 0.17.6-2
 - Add Python 2 subpackage
 
