@@ -2,7 +2,7 @@
 
 Name:           python-%{pypi_name}
 Version:        0.18.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Pure Python Multicast DNS Service Discovery Library
 
 License:        LGPLv2
@@ -60,6 +60,9 @@ supporting Bonjour/Avahi.
 # Remove bundled egg-info
 rm -rf %{pypi_name}.egg-info
 
+# Remove enum-compat from install_requires
+# See https://bugzilla.redhat.com/show_bug.cgi?id=1432165
+sed -i '/enum-compat/d' setup.py
 
 %build
 %py2_build
@@ -103,6 +106,9 @@ rm -rf %{pypi_name}.egg-info
 
 
 %changelog
+* Tue Mar 14 2017 Miro Hrončok <mhroncok@redhat.com> - 0.18.0-2
+- Remove enum-compat from install_requires (#1432165)
+
 * Sat Feb 18 2017 Peter Robinson <pbrobinson@fedoraproject.org> 0.18.0-1
 - Update to 0.18.0
 
