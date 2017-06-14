@@ -1,8 +1,8 @@
 %global pypi_name zeroconf
 
 Name:           python-%{pypi_name}
-Version:        0.18.0
-Release:        2%{?dist}
+Version:        0.19.1
+Release:        1%{?dist}
 Summary:        Pure Python Multicast DNS Service Discovery Library
 
 License:        LGPLv2
@@ -15,8 +15,8 @@ BuildRequires:  python2-setuptools
 BuildRequires:  python2-pytest
 BuildRequires:  python2-mock
 BuildRequires:  python-enum34
-BuildRequires:  python-netifaces
-BuildRequires:  python-six
+BuildRequires:  python2-netifaces
+BuildRequires:  python2-six
 
 BuildRequires:  python3-devel
 BuildRequires:  python3-setuptools
@@ -37,8 +37,8 @@ Summary:        Pure Python 2 Multicast DNS Service Discovery Library
 %{?python_provide:%python_provide python2-%{pypi_name}}
 
 Requires:       python-enum34
-Requires:       python-netifaces
-Requires:       python-six
+Requires:       python2-netifaces
+Requires:       python2-six
 
 %description -n python2-%{pypi_name}
 A pure Python 2 implementation of multicast DNS service discovery
@@ -106,6 +106,10 @@ sed -i '/enum-compat/d' setup.py
 
 
 %changelog
+* Wed Jun 14 2017 Miro Hrončok <mhroncok@redhat.com> - 0.19.1-1
+- New version 0.19.1 (#1461043)
+- Updated (B)Rs to use python2- where possible
+
 * Tue Mar 14 2017 Miro Hrončok <mhroncok@redhat.com> - 0.18.0-2
 - Remove enum-compat from install_requires (#1432165)
 
