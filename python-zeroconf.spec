@@ -2,7 +2,7 @@
 
 Name:           python-%{pypi_name}
 Version:        0.19.1
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Pure Python Multicast DNS Service Discovery Library
 
 License:        LGPLv2
@@ -106,6 +106,9 @@ sed -i '/enum-compat/d' setup.py
 
 
 %changelog
+* Thu Jul 27 2017 Fedora Release Engineering <releng@fedoraproject.org> - 0.19.1-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_27_Mass_Rebuild
+
 * Wed Jun 14 2017 Miro Hrončok <mhroncok@redhat.com> - 0.19.1-1
 - New version 0.19.1 (#1461043)
 - Updated (B)Rs to use python2- where possible
