@@ -2,7 +2,7 @@
 
 Name:           python-%{pypi_name}
 Version:        0.19.1
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Pure Python Multicast DNS Service Discovery Library
 
 License:        LGPLv2
@@ -14,7 +14,7 @@ BuildRequires:  python2-devel
 BuildRequires:  python2-setuptools
 BuildRequires:  python2-pytest
 BuildRequires:  python2-mock
-BuildRequires:  python-enum34
+BuildRequires:  python2-enum34
 BuildRequires:  python2-netifaces
 BuildRequires:  python2-six
 
@@ -36,7 +36,7 @@ supporting Bonjour/Avahi.
 Summary:        Pure Python 2 Multicast DNS Service Discovery Library
 %{?python_provide:%python_provide python2-%{pypi_name}}
 
-Requires:       python-enum34
+Requires:       python2-enum34
 Requires:       python2-netifaces
 Requires:       python2-six
 
@@ -106,6 +106,10 @@ sed -i '/enum-compat/d' setup.py
 
 
 %changelog
+* Fri Dec 08 2017 Iryna Shcherbina <ishcherb@redhat.com> - 0.19.1-3
+- Fix ambiguous Python 2 dependency declarations
+  (See https://fedoraproject.org/wiki/FinalizingFedoraSwitchtoPython3)
+
 * Thu Jul 27 2017 Fedora Release Engineering <releng@fedoraproject.org> - 0.19.1-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_27_Mass_Rebuild
 
